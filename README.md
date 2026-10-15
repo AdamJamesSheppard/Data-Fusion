@@ -48,7 +48,8 @@ do not establish sequential filtering accuracy or real-sensor calibration.
 
 ## Preserved limitations (audit: 2026-10-11)
 
-Original notebooks and scripts remain unchanged; their outputs are historical.
+The following describes the pre-repair versions preserved in Git history.
+The current entry points were repaired on 15 October 2026 (see below).
 `DataFusion.ipynb` cell9 doubles sensor1 precision and information without
 declaring a second independent observation; its two-sensor interpretation is
 therefore unsupported. The posterior covariance formula in cell8 also omits the
@@ -58,5 +59,8 @@ it does not retrospectively validate the notebook.
 `kalman filter with two sensors.py` uses identity transition dynamics for filtering
 Lorenz-96 data, chooses measurement covariance independently of fused noise, and
 reports fused-measurement errors rather than Kalman estimate errors. Its plots
-cannot establish accurate Lorenz filtering. That broader model needs a separate
-scientifically specified experiment; this PR does not silently redesign it.
+cannot establish accurate Lorenz filtering. The current script explicitly uses an extended Kalman filter with RK4 dynamics;
+its seeded synthetic experiment remains a teaching demonstration, not scientific qualification.
+
+## Entry-point repairs — 15 October 2026
+The notebook now delegates to the tested independent-Gaussian utility and corrects the precision derivation. The sensor-filter example now uses the nonlinear RK4 transition and reports filter errors separately. Historical versions remain available in Git history.

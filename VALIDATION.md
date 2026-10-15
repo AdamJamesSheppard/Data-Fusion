@@ -1,3 +1,14 @@
+# Entry-point repair validation — 2026-10-15
+
+**13/13 tests passed** with `python -m unittest discover -s tests -v`.
+
+Notebook execution additionally returned the analytic mean 1 and covariance 0.5. Filter tests check fused noise covariance, Joseph update, nonlinear transition and actual estimate-error accounting. No real-sensor validation or general EKF performance claim.
+
+Environment: Python 3.12.3, NumPy 1.26.4, pandas 3.0.6, SciPy 1.11.4, scikit-learn 1.9.1. Dependencies were supplied in an isolated task environment.
+Self-review by implementing assistant; no independent assessment or CI success is inferred.
+
+## Earlier validation record
+
 # Repair validation — 2026-10-11
 
 Historical base: `e34ce846349bed1d338933ffea1f9fbb4d6a3f4c`.
